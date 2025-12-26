@@ -6,6 +6,7 @@ $tools = [
     'ip_lookup' => ['icon' => 'bi-geo-alt-fill', 'name' => 'IP Information Lookup', 'desc' => 'Get geographical and network info for an IP.'],
     'password_generator' => ['icon' => 'bi-key-fill', 'name' => 'Password Generator', 'desc' => 'Generate strong, random passwords.'],
     'dns_lookup' => ['icon' => 'bi-globe', 'name' => 'DNS Lookup', 'desc' => 'Retrieve DNS records for a domain name.'],
+    'ssl_checker' => ['icon' => 'bi-lock-fill', 'name' => 'SSL Certificate Checker', 'desc' => 'Check the details and validity of an SSL certificate for any domain.'],
     'port_status_checker' => ['icon' => 'bi-hdd-network', 'name' => 'Port Status Checker', 'desc' => 'Quickly check if a specific port is open.'],
     'ip_blacklist_checker' => ['icon' => 'bi-shield-fill-exclamation', 'name' => 'IP Blacklist Checker', 'desc' => 'Check if an IP is on spam blacklists.'],
     'ip_location_map' => ['icon' => 'bi-map-fill', 'name' => 'IP Location Map', 'desc' => 'Visualize the geographical location of an IP address.']

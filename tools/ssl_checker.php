@@ -26,15 +26,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $cert_info = openssl_x509_parse($cert_resource);
 
             if ($cert_info) {
+                // helper to safely read nested keys from $cert_info
+                $get = function($path, $default = 'N/A') use ($cert_info) {
+                    $parts = is_array($path) ? $path : explode('.', $path);
+                    $v = $cert_info;
+                    foreach ($parts as $p) {
+                        if (!is_array($v) || !array_key_exists($p, $v)) {
+                            return $default;
+                        }
+                        $v = $v[$p];
+                    }
+                    return $v;
+                };
+
                 $result = [
-                    'Subject' => $cert_info['subject']['CN'] ?? 'N/A',
-                    'Issuer' => $cert_info['issuer']['CN'] ?? 'N/A',
-                    'Valid From' => date('Y-m-d H:i:s', $cert_info['validFrom_time_t']) ?? 'N/A',
-                    'Valid To' => date('Y-m-d H:i:s', $cert_info['validTo_time_t']) ?? 'N/A',
-                    'Serial Number' => $cert_info['serialNumber'] ?? 'N/A',
-                    'Signature Type' => $cert_info['signatureTypeSN'] ?? 'N/A',
-                    'Key Size' => $cert_info['bits'] ?? 'N/A',
-                    'SAN (Subject Alternative Names)' => implode(', ', $cert_info['extensions']['subjectAltName'] ?? ['N/A']),
+                    'Subject' => $get('subject.CN'),
+                    'Issuer' => $get('issuer.CN'),
+                    'Valid From' => date('Y-m-d H:i:s', $get('validFrom_time_t')),
+                    'Valid To' => date('Y-m-d H:i:s', $get('validTo_time_t')),
+                    'Serial Number' => $get('serialNumber'),
+                    'Signature Type' => $get('signatureTypeSN'),
+                    'Key Size' => $get('bits'),
+                    'SAN (Subject Alternative Names)' => $get('extensions.subjectAltName'),
                 ];
             } else {
                 $error = 'Could not parse SSL certificate information.';

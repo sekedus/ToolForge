@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Please enter a host or IP address.';
     } elseif ($count <= 0 || $count > 10) {
         $error = 'Ping count must be between 1 and 10.';
+    } elseif (!function_exists('shell_exec')) {
+        $error = 'Ping command is not available: shell_exec is disabled on this server.';
     } else {
         // Use shell_exec for ping command
         // Note: This might be disabled or restricted on shared hosting environments.

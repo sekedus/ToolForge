@@ -7,6 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($host)) {
         $error = 'Please enter a host or IP address.';
+    } elseif (!function_exists('shell_exec')) {
+        $error = 'Traceroute unavailable: shell_exec is disabled on this server.';
     } else {
         // Use shell_exec for traceroute command
         // Note: This might be disabled or restricted on shared hosting environments.

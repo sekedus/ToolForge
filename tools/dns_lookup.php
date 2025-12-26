@@ -42,7 +42,7 @@ include __DIR__ . '/../templates/header.php';
             <div class="mb-3">
                 <label for="record_type" class="form-label">Record Type</label>
                 <select class="form-select" id="record_type" name="record_type">
-                    <option value="ANY" <?php echo (isset($_POST['record_type']) && $_POST['record_type'] === 'ANY') ? 'selected' : ''; ?>>ANY</option>
+                    <option value="ALL" <?php echo (isset($_POST['record_type']) && $_POST['record_type'] === 'ALL') ? 'selected' : ''; ?>>ALL</option>
                     <option value="A" <?php echo (isset($_POST['record_type']) && $_POST['record_type'] === 'A') ? 'selected' : ''; ?>>A (Address)</option>
                     <option value="AAAA" <?php echo (isset($_POST['record_type']) && $_POST['record_type'] === 'AAAA') ? 'selected' : ''; ?>>AAAA (IPv6 Address)</option>
                     <option value="MX" <?php echo (isset($_POST['record_type']) && $_POST['record_type'] === 'MX') ? 'selected' : ''; ?>>MX (Mail Exchange)</option>

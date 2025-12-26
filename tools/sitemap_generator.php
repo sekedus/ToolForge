@@ -52,7 +52,7 @@ include __DIR__ . '/../templates/header.php';
         <form method="POST" action="?page=sitemap_generator">
             <div class="mb-3">
                 <label for="urls_input" class="form-label">URLs (one per line)</label>
-                <textarea class="form-control" id="urls_input" name="urls_input" rows="8" placeholder="https://example.com/page1\nhttps://example.com/page2" required><?php echo htmlspecialchars($_POST['urls_input'] ?? ''); ?></textarea>
+                <textarea class="form-control" id="urls_input" name="urls_input" rows="8" placeholder="https://example.com/page1&#10;https://example.com/page2" required><?php echo htmlspecialchars($_POST['urls_input'] ?? ''); ?></textarea>
             </div>
             <div class="mb-3">
                 <label for="changefreq" class="form-label">Change Frequency</label>

@@ -15,7 +15,7 @@ To set up ToolForge on your local machine, follow these steps:
 
 1.  **Clone the repository (if applicable):**
     ```bash
-    git clone https://github.com/your-github-profile/ToolForge.git
+    git clone https://github.com/efemehmet1965/ToolForge.git
     cd ToolForge
     ```
     (Note: If you downloaded the project as a zip, extract it to your desired location.)
@@ -60,7 +60,7 @@ ToolForge'u yerel makinenizde kurmak için şu adımları izleyin:
 
 1.  **Depoyu klonlayın (varsa):**
     ```bash
-    git clone https://github.com/your-github-profile/ToolForge.git
+    git clone https://github.com/efemehmet1965/ToolForge.git
     cd ToolForge
     ```
     (Not: Projeyi zip olarak indirdiyseniz, istediğiniz konuma çıkarın.)

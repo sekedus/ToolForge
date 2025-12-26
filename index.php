@@ -14,7 +14,7 @@ function log_tool_usage($tool_name) {
 $page = $_GET['page'] ?? 'home';
 
 // 2. Define available tools and their files
-$tools = ['base64', 'whois', 'json_validator', 'meta_analyzer', 'port_scanner', 'keyword_density', 'url_encoder', 'http_header_analyzer', 'word_character_counter', 'unix_timestamp_converter', 'ip_lookup', 'robots_txt_generator', 'hash_generator', 'password_generator', 'url_redirect_checker', 'number_base_converter', 'dns_lookup', 'html_minifier', 'lorem_ipsum_generator', 'port_status_checker', 'serp_simulator', 'cron_job_generator', 'ip_blacklist_checker', 'broken_link_checker', 'regex_tester', 'ping_tool', 'traceroute_tool', 'subdomain_finder', 'qr_code_generator', 'ip_location_map', 'sitemap_generator'];
+$tools = ['base64', 'whois', 'json_validator', 'meta_analyzer', 'port_scanner', 'keyword_density', 'url_encoder', 'http_header_analyzer', 'word_character_counter', 'unix_timestamp_converter', 'ip_lookup', 'robots_txt_generator', 'hash_generator', 'password_generator', 'url_redirect_checker', 'number_base_converter', 'dns_lookup', 'html_minifier', 'lorem_ipsum_generator', 'port_status_checker', 'serp_simulator', 'cron_job_generator', 'ip_blacklist_checker', 'broken_link_checker', 'regex_tester', 'ping_tool', 'traceroute_tool', 'subdomain_finder', 'qr_code_generator', 'ip_location_map', 'sitemap_generator','ssl_checker'];
 $templates = ['home', 'security', 'seo', 'developer', 'stats', 'contact', 'network']; // Added 'network' page
 
 // 3. Route the request

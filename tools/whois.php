@@ -4,10 +4,14 @@ $error = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $domain = trim($_POST['domain'] ?? '');
     if (!empty($domain) && filter_var(gethostbyname($domain), FILTER_VALIDATE_IP)) {
-        // Note: shell_exec might be disabled on shared hosting.
-        $result = shell_exec('whois ' . escapeshellarg($domain));
-        if (empty($result)) {
-            $error = "Could not retrieve Whois information for '{$domain}'. The domain may not exist, the Whois server is unavailable, or shell_exec is disabled on this server.";
+        if (function_exists('shell_exec')) {
+            // Note: shell_exec might be disabled on shared hosting.
+            $result = shell_exec('whois ' . escapeshellarg($domain));
+            if (empty($result)) {
+                $error = "Could not retrieve Whois information for '{$domain}'. The domain may not exist, or the Whois server is unavailable.";
+            }
+        } else {
+            $error = "Whois lookup is unavailable: shell_exec is disabled on this server.";
         }
     } else {
         $error = 'Please enter a valid domain name.';
